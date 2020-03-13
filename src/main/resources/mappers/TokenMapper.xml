@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.cloudmusic.mapping.TokenMapper">
+  <resultMap id="BaseResultMap" type="com.liang.cloudmusic.model.Token">
+    <result column="access_token" jdbcType="VARCHAR" property="accessToken" />
+  </resultMap>
+  <insert id="insert" parameterType="com.liang.cloudmusic.model.Token">
+    insert into token (access_token)
+    values (#{accessToken,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.cloudmusic.model.Token">
+    insert into token
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accessToken != null">
+        access_token,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accessToken != null">
+        #{accessToken,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getAccessToken" resultMap="BaseResultMap">
+    select * from token
+  </select>
+  <update id="getNewAccessToken"  parameterType="java.lang.String" >
+    update
+        token
+    set
+        access_token = #{newAccessToken,jdbcType=VARCHAR}
+    where
+        access_token = #{oldAccessToken,jdbcType=VARCHAR}
+  </update>
+</mapper>

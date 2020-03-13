@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/music?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: luke
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml  # mapperӳ���ļ�
+  type-aliases-package: com.liang.cloudmusic.model
+  configuration:
+    map-underscore-to-camel-case: true
+    # ����̨��ʾsql���
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
