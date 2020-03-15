@@ -8,11 +8,11 @@
  */
 package com.liang.cloudmusic.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class AccessToken {
 
     private String access_token;

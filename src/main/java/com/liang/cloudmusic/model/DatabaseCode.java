@@ -9,11 +9,44 @@
 package com.liang.cloudmusic.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
 public class DatabaseCode {
     private Long errcode;
     private String errmsg;
     private Object pager;
     private String[] data;
+
+    public Long getErrcode() {
+        return errcode;
+    }
+
+    public void setErrcode(Long errcode) {
+        this.errcode = errcode;
+    }
+
+    public String getErrmsg() {
+        return errmsg;
+    }
+
+    public void setErrmsg(String errmsg) {
+        this.errmsg = errmsg;
+    }
+
+    public Object getPager() {
+        return pager;
+    }
+
+    public void setPager(Object pager) {
+        this.pager = pager;
+    }
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void setData(String[] data) {
+        this.data = data;
+    }
 }

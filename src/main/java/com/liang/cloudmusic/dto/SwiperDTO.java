@@ -11,9 +11,33 @@ package com.liang.cloudmusic.dto;
 import lombok.Data;
 
 
-@Data
+//@Data
 public class SwiperDTO {
     private Long errcode;
     private String errmsg;
     private String[] data;
+
+    public Long getErrcode() {
+        return errcode;
+    }
+
+    public void setErrcode(Long errcode) {
+        this.errcode = errcode;
+    }
+
+    public String getErrmsg() {
+        return errmsg;
+    }
+
+    public void setErrmsg(String errmsg) {
+        this.errmsg = errmsg;
+    }
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void setData(String[] data) {
+        this.data = data;
+    }
 }

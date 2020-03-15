@@ -8,6 +8,7 @@
  */
 package com.liang.cloudmusic.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -15,8 +16,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter
-@Setter
+@Data
 @PropertySource(value = "classpath:config/weixin-config.properties")
 @ConfigurationProperties(prefix = "wx")
 public class WeiXinConfigParameter {

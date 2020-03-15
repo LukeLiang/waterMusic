@@ -41,11 +41,16 @@ public class WXServiceImpl implements WXService {
 
     @Override
     public String getAccessToken() {
-        // 1.获取access_token
+         // 1.获取access_token
         String url = "https://api.weixin.qq.com/cgi-bin/token?" +
                 "grant_type=" + WXParameter.getGrantType() + "&" +
                 "appid=" + WXParameter.getAppid() + "&" +
                 "secret=" + WXParameter.getSecret();
+
+//        String url = "https://api.weixin.qq.com/cgi-bin/token?" +
+//                "grant_type=client_credential&" +
+//                "appid=wx86f521277310d89f&" +
+//                "secret=5584c0b7c24a11ac3d03e2e4ca3815c8";
 
         ResponseEntity<AccessToken> responseEntity = restTemplate.getForEntity(url, AccessToken.class);
         AccessToken body = responseEntity.getBody();
@@ -87,7 +92,7 @@ public class WXServiceImpl implements WXService {
 
         String query = "db.collection('playlist').doc('" + id + "').get()";
 
-        UnifyResponse res = CommonUtil.operatDatabase(id, access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_QUERY.getValue(), query);
+        UnifyResponse res = CommonUtil.operatDatabase(id, access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_QUERY.getValue(), query);
 
         return res;
     }
@@ -100,7 +105,7 @@ public class WXServiceImpl implements WXService {
 
         String query = "db.collection('playlist').doc('" + musicDTO.get_id() +"').update({data: {name: '" + musicDTO.getName() +"', copywriter: '" + musicDTO.getCopywriter() +"'}})";
 
-        UnifyResponse res = CommonUtil.operatDatabase(musicDTO.get_id(), access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_UPDATE.getValue(), query);
+        UnifyResponse res = CommonUtil.operatDatabase(musicDTO.get_id(), access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_UPDATE.getValue(), query);
 
         return res;
     }

@@ -11,8 +11,8 @@ package com.liang.cloudmusic.vo;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class SwiperResponseVO {
 
     private String _id;
@@ -20,4 +20,28 @@ public class SwiperResponseVO {
     private String fileid;
 
     private String download_url;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String getFileid() {
+        return fileid;
+    }
+
+    public void setFileid(String fileid) {
+        this.fileid = fileid;
+    }
+
+    public String getDownload_url() {
+        return download_url;
+    }
+
+    public void setDownload_url(String download_url) {
+        this.download_url = download_url;
+    }
 }

@@ -39,7 +39,7 @@ public class SwiperServiceImpl implements SwiperService {
 
         String query = "db.collection('swiper').get()";
 
-        UnifyResponse res = CommonUtil.getAll(access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_QUERY.getValue(), query);
+        UnifyResponse res = CommonUtil.getAll(access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_QUERY.getValue(), query);
         return res;
     }
 
@@ -54,7 +54,7 @@ public class SwiperServiceImpl implements SwiperService {
         String path = "swiper/" + System.currentTimeMillis() + "-" + fileName;
 
 
-        UnifyResponse res = CommonUtil.uploadFile(access_token, WXParameter.getEnv(), path, bytes);
+        UnifyResponse res = CommonUtil.uploadFile(access_token, "cloudmusic-dev-o26dl", path, bytes);
 
         return res;
     }
@@ -71,10 +71,10 @@ public class SwiperServiceImpl implements SwiperService {
         fileid[0] = swiperDataDTO.getFileid();
 
         // 1.删除云数据库中的当前swiper
-        CommonUtil.operatDatabase("", access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_DELETE.getValue(), query);
+        CommonUtil.operatDatabase("", access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_DELETE.getValue(), query);
 
         // 2.删除云存储中的当前swiper
-        UnifyResponse res = CommonUtil.delCloundStorage(access_token, WXParameter.getEnv(), fileid);
+        UnifyResponse res = CommonUtil.delCloundStorage(access_token, "cloudmusic-dev-o26dl", fileid);
 
         return res;
     }

@@ -65,8 +65,8 @@ public class CommonUtil {
         // 发送请求
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<ResponseCode> responseEntity = restTemplate.postForEntity(baseUrl, entity, ResponseCode.class);
-
-        UnifyResponse response = new UnifyResponse(20000, responseEntity.getBody().getResp_data());
+        ResponseCode res = responseEntity.getBody();
+        UnifyResponse response = new UnifyResponse(20000, res.getResp_data());
 
         return response;
     }

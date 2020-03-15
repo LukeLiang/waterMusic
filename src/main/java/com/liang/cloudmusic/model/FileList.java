@@ -10,10 +10,26 @@ package com.liang.cloudmusic.model;
 
 import lombok.Data;
 
-@Data
+//@Data
 public class FileList {
 
     private String fileid;
 
     private int max_age;
+
+    public String getFileid() {
+        return fileid;
+    }
+
+    public void setFileid(String fileid) {
+        this.fileid = fileid;
+    }
+
+    public int getMax_age() {
+        return max_age;
+    }
+
+    public void setMax_age(int max_age) {
+        this.max_age = max_age;
+    }
 }

@@ -37,7 +37,7 @@ public class BlogServiceImpl implements BlogService {
 
         String query = "db.collection('blog').skip(" + start + ").limit(" + count + ").orderBy('createTime', 'desc').get()";
 
-        UnifyResponse res = CommonUtil.operatDatabase("", access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_QUERY.getValue(), query);
+        UnifyResponse res = CommonUtil.operatDatabase("", access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_QUERY.getValue(), query);
 
         return res;
     }
@@ -51,14 +51,14 @@ public class BlogServiceImpl implements BlogService {
 
         // 1.删除云数据库中相关内容
         String deleteBlog = "db.collection('blog').doc('" + blogDTO.get_id() + "').remove()";
-        CommonUtil.operatDatabase("", access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_DELETE.getValue(), deleteBlog);
+        CommonUtil.operatDatabase("", access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_DELETE.getValue(), deleteBlog);
 
         // 2.删除blog-comment相关内容
         String deleteBlogComment = "db.collection('blog-comment').where({blogId: '" + blogDTO.get_id() + "'}).remove()";
-        CommonUtil.operatDatabase("", access_token, WXParameter.getEnv(), DatabaseOperateType.DATABASE_DELETE.getValue(), deleteBlogComment);
+        CommonUtil.operatDatabase("", access_token, "cloudmusic-dev-o26dl", DatabaseOperateType.DATABASE_DELETE.getValue(), deleteBlogComment);
 
         // 3.删除云存储中的相关照片信息
-        CommonUtil.delCloundStorage(access_token, WXParameter.getEnv(), blogDTO.getImg());
+        CommonUtil.delCloundStorage(access_token, "cloudmusic-dev-o26dl", blogDTO.getImg());
 
         UnifyResponse res = new UnifyResponse(20000, "成功");
         return res;

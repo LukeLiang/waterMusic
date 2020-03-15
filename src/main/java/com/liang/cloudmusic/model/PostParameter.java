@@ -13,8 +13,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class PostParameter {
 
     private String access_token;    // access_token
@@ -26,6 +26,38 @@ public class PostParameter {
         this.access_token = access_token;
         this.env = env;
         this.name = name;
+        this.POSTBODY = POSTBODY;
+    }
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
+    }
+
+    public String getEnv() {
+        return env;
+    }
+
+    public void setEnv(String env) {
+        this.env = env;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getPOSTBODY() {
+        return POSTBODY;
+    }
+
+    public void setPOSTBODY(List<String> POSTBODY) {
         this.POSTBODY = POSTBODY;
     }
 }

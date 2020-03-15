@@ -11,10 +11,9 @@ package com.liang.cloudmusic.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class BlogDTO {
 
     private String _id;
@@ -30,4 +29,52 @@ public class BlogDTO {
     private String[] img;
 
     private String nickName;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String get_openid() {
+        return _openid;
+    }
+
+    public void set_openid(String _openid) {
+        this._openid = _openid;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String[] getImg() {
+        return img;
+    }
+
+    public void setImg(String[] img) {
+        this.img = img;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
 }

@@ -10,11 +10,24 @@ package com.liang.cloudmusic.model;
 
 import lombok.Getter;
 import lombok.Setter;
-
-@Getter
-@Setter
 public class DataList {
 
     private String _id;
     private String fileid;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String getFileid() {
+        return fileid;
+    }
+
+    public void setFileid(String fileid) {
+        this.fileid = fileid;
+    }
 }

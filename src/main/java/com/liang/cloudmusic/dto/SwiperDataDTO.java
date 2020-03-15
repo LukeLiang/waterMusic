@@ -11,7 +11,7 @@ package com.liang.cloudmusic.dto;
 import lombok.Data;
 
 
-@Data
+//@Data
 public class SwiperDataDTO {
 
     private String fileid;
@@ -21,4 +21,36 @@ public class SwiperDataDTO {
     private int status;
 
     private String errmsg;
+
+    public String getFileid() {
+        return fileid;
+    }
+
+    public void setFileid(String fileid) {
+        this.fileid = fileid;
+    }
+
+    public String getDownload_url() {
+        return download_url;
+    }
+
+    public void setDownload_url(String download_url) {
+        this.download_url = download_url;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getErrmsg() {
+        return errmsg;
+    }
+
+    public void setErrmsg(String errmsg) {
+        this.errmsg = errmsg;
+    }
 }

@@ -15,7 +15,7 @@ import lombok.Data;
  * vue-element-admin 要求返回数据必须有一个code:20000
  * @param <T>
  */
-@Data
+//@Data
 public class UnifyResponse<T> {
 
     private Integer code;
@@ -24,6 +24,22 @@ public class UnifyResponse<T> {
 
     public UnifyResponse(Integer code, T data){
         this.code = code;
+        this.data = data;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
         this.data = data;
     }
 }
